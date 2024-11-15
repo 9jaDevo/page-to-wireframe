@@ -1,0 +1,63 @@
+/* CSS/settings.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Container */
+.settings-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Heading */
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Label */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Dropdown */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Save Button */
+button#save-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button#save-btn:hover {
+    background-color: #357ae8;
+}
+
+/* Status Message */
+#status {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: green;
+    text-align: center;
+}

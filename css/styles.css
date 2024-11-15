@@ -1,11 +1,11 @@
+/* CSS/styles.css */
+
 /**
  * @file
  * Styles to make the page look like a wireframe.
  */
 
-/**
- * CSS Custom properties for colors and other variables.
- */
+/* CSS Custom Properties for Colors */
 :root {
   --color--black: #282829;
   --color--grey-dark: #58595B;
@@ -14,67 +14,55 @@
   --color--white: #fff;
 }
 
-/**
- * Fonts imported early and directly.
- *
- * Only include fonts that are known to be used, since each is an asset to load.
- * font-display: swap; is used to prevent text from being hidden on load.
- * We list src in preference order: local, woff2, then woff
- *
- * @see https://google-webfonts-helper.herokuapp.com/fonts
- */
+/* Import Fonts */
 @font-face {
   font-display: swap;
-  font-family: 'Redacted script';
+  font-family: 'Redacted Script';
   font-style: normal;
   font-weight: 300;
-  src: local('Redacted script'),
-  url('chrome-extension://__MSG_@@extension_id__/css/fonts/redacted/redacted-script-light.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Redacted script';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Redacted script'),
-  url('chrome-extension://__MSG_@@extension_id__/css/fonts/redacted/redacted-script-regular.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Redacted script';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Redacted script'),
-  url('chrome-extension://__MSG_@@extension_id__/css/fonts/redacted/redacted-script-bold.woff2') format('woff2');
+  src: local('Redacted Script'),
+    url('fonts/redacted/redacted-script-light.woff2') format('woff2'),
+    url('fonts/redacted/redacted-script-light.woff') format('woff');
 }
 
-/**
- * Font family declarations, all in one place and early.
- *
- * Let's keep all font-family calls right here, so it's manageable. Even classes
- * if necessary.
- */
+@font-face {
+  font-display: swap;
+  font-family: 'Redacted Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Redacted Script'),
+    url('fonts/redacted/redacted-script-regular.woff2') format('woff2'),
+    url('fonts/redacted/redacted-script-regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Redacted Script';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Redacted Script'),
+    url('fonts/redacted/redacted-script-bold.woff2') format('woff2'),
+    url('fonts/redacted/redacted-script-bold.woff') format('woff');
+}
+
+/* Redacted Standard Font */
+@font-face {
+  font-display: swap;
+  font-family: 'Redacted Standard';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Redacted Standard'),
+    url('fonts/redacted/redacted-standard.woff2') format('woff2'),
+    url('fonts/redacted/redacted-standard.woff') format('woff');
+}
+
+/* Global Font Styles */
+body,
 html,
 button,
 input,
 select,
-textarea {
-  font-family: "Redacted script", Arial, sans-serif !important;
-}
-
-body,
-.font-family--primary,
-*,
-html body * {
-  font-family: "Redacted script", Arial, sans-serif !important;
-}
-
-/**
- * Often the headings and other sparing elements take a second font family.
- *
- * CSSLint and other tools might squawk at double-declaring <h*> tags, but this
- * puts all the font-family declarations in one place, which feels good.
- */
+textarea,
 h1,
 h2,
 h3,
@@ -83,121 +71,99 @@ h5,
 h6,
 label,
 th,
-.font-family--secondary,
-.menu--main {
-  font-family: "Redacted script", Arial, Helvetica, sans-serif !important;
-}
-
-/**
- * Some sites have Monospace text for code samples and the like.
- */
+.menu--main,
+.menu--secondary,
 code,
 kbd,
 pre,
-samp,
-.font-family--monospace {
-  font-family: "courier new", monospace;
+samp {
+  /* Default font family; actual font applied via content-script */
+  font-family: Arial, sans-serif;
 }
 
-/**
- * Declarations for all elements.
- */
-* {
-
-}
-
-/**
- * HTML root element. Doesn't take all styles.
- */
-html, body {
-  background: #fff;
-  color: #333;
-  filter: grayscale(1);
-}
-
-/**
- * The body tag should take the site's universal styles.
- *
- * rem is based on this font-size dec, so only change if you're sure about the
- * type scale.
- * The body line-height should be one of only a handful of [unitless] line-height
- * declarations in the CSS codebase.
- */
+/* Wireframe Styles */
+html,
 body {
   background: #fff;
   color: var(--color--grey-dark);
+  filter: grayscale(1);
   scroll-behavior: smooth;
 }
-body > * {
+
+body>* {
   font-size: 1.35em;
 }
 
 a {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
-h1:before {
+h1::before {
   content: '<h1>: ';
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 1rem;
-  font-weight: bold;
-}
-h2:before {
-  content: '<h2>: ';
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 1rem;
-  font-weight: bold;
-}
-h3:before {
-  content: '<h3>: ';
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 1rem;
-  font-weight: bold;
-}
-h4:before {
-  content: '<h4>: ';
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 1rem;
-  font-weight: bold;
-}
-h5:before {
-  content: '<h5>: ';
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 1rem;
-  font-weight: bold;
-}
-h6:before {
-  content: '<h6>: ';
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: bold;
 }
 
-/**
- * iframes.
- *
- * Let's put borders on 'em, unless they don't need them in the theme.
- */
+h2::before {
+  content: '<h2>: ';
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h3::before {
+  content: '<h3>: ';
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h4::before {
+  content: '<h4>: ';
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h5::before {
+  content: '<h5>: ';
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h6::before {
+  content: '<h6>: ';
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 iframe {
   border: 1px solid var(--color--grey-light);
 }
 
-/**
- * Images.
- *
- * Since they have a max-width of 100%, the height: auto is truly important.
- * There's a render prop for old version of IE.
- * And the display and line-height props are normalize-ish for spacing.
- */
 img {
-  border: 2px var(--color--grey) solid;
-  -ms-interpolation-mode: bicubic;
+  border: 2px solid var(--color--grey);
   display: inline-block;
   filter: grayscale(1) blur(3px);
   position: relative;
 }
 
 .has-background-image {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/css/images/background-image.jpg') !important;
+  background-image: url('images/background-image.jpg') !important;
   background-size: cover !important;
+}
+
+/* Redacted Script Font */
+.redacted-script,
+.redacted-script * {
+  font-family: "Redacted Script", Arial, sans-serif !important;
+}
+
+/* Redacted Standard Font */
+.redacted-standard,
+.redacted-standard * {
+  font-family: "Redacted Standard", Arial, sans-serif !important;
 }
