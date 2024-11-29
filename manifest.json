@@ -22,13 +22,24 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "__MSG_browserActionDefaultTitle__",
-    "default_popup": "settings.html"
+    "default_title": "__MSG_browserActionDefaultTitle__"
   },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
   "web_accessible_resources": [
     {
       "resources": [
         "CSS/styles.css",
+        "CSS/font.css",
         "CSS/fonts/redacted/*.woff",
         "CSS/fonts/redacted/*.woff2",
         "CSS/images/*.jpg",

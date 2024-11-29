@@ -1,0 +1,42 @@
+/* font.css */
+/* Import Fonts */
+@font-face {
+    font-display: swap;
+    font-family: 'Redacted Script';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Redacted Script'),
+        url('fonts/redacted/redacted-script-light.woff2') format('woff2'),
+        url('fonts/redacted/redacted-script-light.woff') format('woff');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Redacted Script';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Redacted Script'),
+        url('fonts/redacted/redacted-script-regular.woff2') format('woff2'),
+        url('fonts/redacted/redacted-script-regular.woff') format('woff');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Redacted Script';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Redacted Script'),
+        url('fonts/redacted/redacted-script-bold.woff2') format('woff2'),
+        url('fonts/redacted/redacted-script-bold.woff') format('woff');
+}
+
+/* Redacted Standard Font */
+@font-face {
+    font-display: swap;
+    font-family: 'Redacted Standard';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Redacted Standard'),
+        url('fonts/redacted/redacted-standard.woff2') format('woff2'),
+        url('fonts/redacted/redacted-standard.woff') format('woff');
+}
